@@ -1,16 +1,35 @@
-# React + Vite
+# X1C-Calc
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Transparenter Kostenkalkulator für 3D-Druck-Aufträge mit dem Bambu Lab X1C.
 
-Currently, two official plugins are available:
+**[→ Live Demo](https://dakky.github.io/x1c-calc/)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **Kostenberechnung** — Materialkosten, Verschleiß, Strom und Setup-Pauschale auf einen Blick
+- **Freunde / Kunden** — Zwei Modi: Freunde zahlen nur Betriebskosten, Kunden einen Aufschlag
+- **Teilbare Links** — Alle Parameter in der URL, Kalkulation per Link verschicken
+- **Dark Mode** — Automatisch nach System-Präferenz
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Formel
 
-## Expanding the ESLint configuration
+```
+Preis = Setup + (Druckzeit × Verschleiß/h) + (Druckzeit × Verbrauch × Strompreis) + (Gewicht/1000 × Filamentpreis/kg)
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Im Kunden-Modus wird auf die Summe ein Aufschlag von 25 % berechnet.
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Build: `npm run build` · Lint: `npm run lint`
+
+**Stack:** React, Vite, Tailwind CSS v4
+
+## Deployment
+
+Automatisch via GitHub Actions auf GitHub Pages bei Push auf `main`.
